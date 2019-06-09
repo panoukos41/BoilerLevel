@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name" translatable="false">Boiler level Measurment</string>
+    <string name="Boiler">Boiler</string>
+    <string name="Delete">Delete</string>
+    <string name="Create">Create</string>
+    <string name="EmptyName">Name can\'t be empty.</string>
+    <string name="Cancel">Cancel</string>
+    <string name="BoilerName">Boiler\'s name</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="NumberOfMeasurments">Number of Measurments:</string>
+    <string name="CreatedAt">Created at:</string>
+    <string name="DeleteBoilerQ">Are you sure you want to delete the boiler</string>
+    <string name="Temperature">Temperature</string>
+    <string name="Level">Level</string>
+    <string name="your_value">Your Value!</string>
+    <string name="Save">Save</string>
+    <string name="Add">Add</string>
+    <string name="EditTemplate">Edit Template</string>
+    <string name="AddMeasurement">Add Measurement</string>
+    <string name="your_measurment_name_id">Your measurment\'s unique name/id.</string>
+    <string name="EmptyValue">Value can\'t be empty!</string>
+    <string name="NameExists">Name already exists!</string>
+    <string name="share_excel">Share Excel</string>
+</resources>

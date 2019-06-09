@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Boiler">Λέβητας</string>
+    <string name="Delete">Διαγραφή</string>
+    <string name="Create">Δημιουργία</string>
+    <string name="EmptyName">Το όνομα δεν μπορεί να είναι κενό.</string>
+    <string name="Cancel">Ακύρωση</string>
+    <string name="BoilerName">Το όνομα του λέβητα</string>
+    <string name="No">Όχι</string>
+    <string name="Yes">Ναί</string>
+    <string name="NumberOfMeasurments">Αριθμός Μετρήσεων:</string>
+    <string name="CreatedAt">Δημιουργήθηκε στίς:</string>
+    <string name="DeleteBoilerQ">Είστε βέβαιος ότι θέλετε να διαγράψετε τον λέβητα</string>
+    <string name="Temperature">Θερμοκρασία</string>
+    <string name="Level">Επίπεδο</string>
+    <string name="your_value">Η τιμή σου!</string>
+    <string name="your_measurment_name_id">Το μοναδικό όνομα της μέτρησης σου.</string>
+    <string name="Add">Προσθήκη</string>
+    <string name="AddMeasurement">Προσθήκη μέτρησης</string>
+    <string name="EditTemplate">Επεξεργασία Προτύπου</string>
+    <string name="Save">Αποθήκευση</string>
+    <string name="NameExists">Το όνομα αυτο υπάρχει ήδη!</string>
+    <string name="EmptyValue">Η τιμή δέν μπορεί να είναι κενή!</string>
+</resources>

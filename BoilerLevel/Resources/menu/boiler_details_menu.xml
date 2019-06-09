@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:id="@+id/TestMeasurments"
+      android:title="Test" />
+  <item
+      android:id="@+id/EditTemplate"
+      android:title="@string/EditTemplate" />
+  <item
+      android:id="@+id/ShareExcel"
+      android:title="@string/share_excel" />
+  <item
+      android:id="@+id/SaveExcel"
+      android:title="Save Excel" />
+</menu>
