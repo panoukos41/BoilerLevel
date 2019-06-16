@@ -6,8 +6,7 @@ using Android.Views;
 using Android.Widget;
 using BoilerLevel.Models;
 using GalaSoft.MvvmLight.Helpers;
-using OpenExtensions.Android;
-using OpenExtensions.Android.Services;
+using OpenExtensions.Droid;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,7 +28,7 @@ namespace BoilerLevel.Controls
 
         #region overrides
 
-        public override int Theme => ThemeService.IsDarkTheme() ? R.Style.DarkTheme_FullScreen_Dialog : R.Style.LightTheme_FullScreen_Dialog;
+        public override int Theme => Shell.ThemeService.IsDarkTheme() ? R.Style.DarkTheme_FullScreen_Dialog : R.Style.LightTheme_FullScreen_Dialog;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -105,7 +104,7 @@ namespace BoilerLevel.Controls
 
         private void SaveButton(object s, object e)
         {
-            bool success = true;            
+            bool success = true;
 
             for (int i = 2; i < template.Count; i++)
             {

@@ -36,8 +36,8 @@ namespace BoilerLevel.Models
         {
             get => JsonService.Deserialize<Dictionary<string, float>>(JsonValues);
             set => JsonValues = JsonService.Serialize(value);
-        }       
+        }
 
-        public string JsonValues { get; set; }        
+        public string JsonValues { get; set; }
     }
 }

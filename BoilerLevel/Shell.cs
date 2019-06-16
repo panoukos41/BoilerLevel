@@ -10,10 +10,10 @@ using BoilerLevel.Utils;
 using BoilerLevel.Views;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Views;
-using OpenExtensions.Android;
-using OpenExtensions.Android.App;
-using OpenExtensions.Android.FragmentNavigation;
-using OpenExtensions.Android.Services;
+using OpenExtensions.Droid;
+using OpenExtensions.Droid.App;
+using OpenExtensions.Droid.FragmentNavigation;
+using OpenExtensions.Droid.Services;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Messenger = GalaSoft.MvvmLight.Messaging.Messenger;
@@ -25,6 +25,7 @@ namespace BoilerLevel
     public class Shell : FragmentNavigationActivity
     {
         public static INavigationService navigationService;
+        public static ThemeService ThemeService { get; set; }
 
         public override Task OnLaunchAsync(Bundle savedInstanceState)
         {
@@ -90,22 +91,22 @@ namespace BoilerLevel
                 .Configure("BoilerDetails", typeof(BoilerDetails));
 
             nav.SetAnimations(
-                R.Animation.enter_from_right,
-                R.Animation.exit_to_left,
-                R.Animation.enter_from_left,
-                R.Animation.exit_to_right);
+                R.Animation.Enter_from_right,
+                R.Animation.Exit_to_left,
+                R.Animation.Enter_from_left,
+                R.Animation.Exit_to_right);
 
             return nav;
         }
 
         public override void SetTheme()
         {
-            ThemeService.Initialize(this, R.Style.DarkTheme, R.Style.LightTheme);
+            ThemeService = new ThemeService(this, R.Style.DarkTheme, R.Style.LightTheme);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
         #endregion

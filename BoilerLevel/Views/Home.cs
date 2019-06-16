@@ -10,7 +10,7 @@ using BoilerLevel.Messages;
 using BoilerLevel.Models;
 using BoilerLevel.ViewModels;
 using GalaSoft.MvvmLight.Helpers;
-using OpenExtensions.Android.FragmentNavigation;
+using OpenExtensions.Droid.FragmentNavigation;
 using Messenger = GalaSoft.MvvmLight.Messaging.Messenger;
 
 namespace BoilerLevel.Views

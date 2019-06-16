@@ -1,15 +1,13 @@
 ﻿using Android;
-using Android.Content.PM;
 using Android.OS;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
-using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
 using BoilerLevel.Controls;
 using BoilerLevel.Models;
 using BoilerLevel.ViewModels;
-using OpenExtensions.Android.FragmentNavigation;
+using OpenExtensions.Droid.FragmentNavigation;
+using OpenExtensions.Droid.Services;
 using OxyPlot.Xamarin.Android;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +25,7 @@ namespace BoilerLevel.Views
         {
             base.OnCreate(savedInstanceState);
             HasOptionsMenu = true;
-            VM = new BoilerDetailsViewModel((Boiler)PARAMETER);
+            VM = new BoilerDetailsViewModel((Boiler)Nav_parameter);
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -98,8 +96,8 @@ namespace BoilerLevel.Views
                         int a = 0;
                         var values = new Dictionary<string, float>();
                         foreach (var key in VM.Boiler.Template)
-                        {                            
-                            values[key] = 5 + a + (2 * i);                            
+                        {
+                            values[key] = 5 + a + (2 * i);
                             a++;
                         }
                         measur.Values = values;
@@ -128,15 +126,13 @@ namespace BoilerLevel.Views
 
             async void SaveExcel()
             {
-                if (ContextCompat.CheckSelfPermission(Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+                var permissionService = new PermissionService(Activity);
+                if (!permissionService.HasPermission(Manifest.Permission.WriteExternalStorage))
                 {
-                    ActivityCompat.RequestPermissions(Activity, new[] { Manifest.Permission.WriteExternalStorage }, 0);
-
-                    if (ContextCompat.CheckSelfPermission(Context, Manifest.Permission.WriteExternalStorage) == Permission.Granted)
-                        await Save();
+                    permissionService.RequestPermission(Manifest.Permission.WriteExternalStorage);
                 }
 
-                if (ContextCompat.CheckSelfPermission(Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+                if (!permissionService.HasPermission(Manifest.Permission.WriteExternalStorage))
                     Toast.MakeText(Context, "Can't save excel without permission.", ToastLength.Long).Show();
                 else
                     await Save();
@@ -150,7 +146,8 @@ namespace BoilerLevel.Views
                     int tries = 1;
                     while (File.Exists(path))
                     {
-                        path = Path.Combine(envpath, $"{fileName}_{tries++}.xlsx");
+                        fileName = $"{VM.Boiler.Name}_{tries++}";
+                        path = Path.Combine(envpath, fileName + ".xlsx");
                     }
                     var fileStream = File.Create(path);
 

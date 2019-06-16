@@ -1,9 +1,5 @@
-﻿using Android.OS;
-using Android.Support.V4.Content;
-using OfficeOpenXml;
-using OfficeOpenXml.Table;
+﻿using OfficeOpenXml;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 

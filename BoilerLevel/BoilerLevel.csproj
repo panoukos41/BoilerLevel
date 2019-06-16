@@ -134,10 +134,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EPPlus">
-      <Version>4.5.3.1</Version>
+      <Version>4.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="OpenExtensions">
-      <Version>0.2.0-alpha</Version>
+      <Version>0.2.18-alpha</Version>
     </PackageReference>
     <PackageReference Include="OxyPlot.Xamarin.Android">
       <Version>1.0.0</Version>

@@ -5,7 +5,6 @@ using BoilerLevel.Utils;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using OpenExtensions.Android.Services;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -36,7 +35,7 @@ namespace BoilerLevel.ViewModels
         {
             PlotModel = new PlotModel();
 
-            var color = ThemeService.IsDarkTheme() ? OxyColor.FromRgb(255, 255, 255) : OxyColor.FromRgb(0, 0, 0);
+            var color = Shell.ThemeService.IsDarkTheme() ? OxyColor.FromRgb(255, 255, 255) : OxyColor.FromRgb(0, 0, 0);
             var minValue = Boiler.Measurments.Count > 0 ? DateTimeAxis.ToDouble(Boiler.Measurments[0].DateTime.AddDays(-1)) : DateTimeAxis.ToDouble(DateTime.Now);
             var markSize = 4;
             var markType = MarkerType.Circle;
@@ -55,7 +54,7 @@ namespace BoilerLevel.ViewModels
             //X axis
             PlotModel.Axes.Add(new DateTimeAxis
             {
-                Title ="Dates",
+                Title = "Dates",
                 Position = AxisPosition.Bottom,
                 Minimum = DateTimeAxis.ToDouble(DateTime.Now.AddDays(-2)),
                 Maximum = DateTimeAxis.ToDouble(DateTime.Now.AddDays(2)),
